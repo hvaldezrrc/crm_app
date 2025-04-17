@@ -1,0 +1,36 @@
+<div class="customer-card">
+  <div class="customer-image">
+    <% if customer.image.attached? %>
+      <%= image_tag customer.image.variant(resize_to_limit: [200, 200]), class: "customer-avatar" %>
+    <% else %>
+      <div class="no-image">No Image</div>
+    <% end %>
+  </div>
+
+  <div class="customer-details">
+    <h3 class="customer-name"><%= customer.full_name %></h3>
+
+    <% if customer.phone_number.present? %>
+      <p class="customer-phone">
+        <strong>Phone:</strong> <%= customer.phone_number %>
+      </p>
+    <% end %>
+
+    <% if customer.email_address.present? %>
+      <p class="customer-email">
+        <strong>Email:</strong> <%= customer.email_address %>
+      </p>
+    <% else %>
+      <p class="customer-email missing">
+        <strong>Email:</strong> <em>No email provided</em>
+      </p>
+    <% end %>
+
+    <% if customer.notes.present? %>
+      <div class="customer-notes">
+        <strong>Notes:</strong>
+        <p><%= customer.notes %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

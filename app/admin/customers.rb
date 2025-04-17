@@ -1,5 +1,4 @@
 ActiveAdmin.register Customer do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -24,7 +23,7 @@ ActiveAdmin.register Customer do
       f.input :email_address
       f.input :notes
       f.input :image, as: :file, hint: (
-        f.object.image.attached? ? image_tag(url_for(f.object.variant(resize_to_limit: [250, 200]))) : content_tag(:span, "No image yet"))
+        f.object.image.attached? ? image_tag(url_for(f.object.variant(resize_to_limit: [ 250, 200 ]))) : content_tag(:span, "No image yet"))
     end
     f.actions
   end
@@ -37,7 +36,7 @@ ActiveAdmin.register Customer do
       row :notes
       row :image do |customer|
         if customer.image.attached?
-          image_tag url_for(customer.image.variant(resize_to_limit: [250, 200]))
+          image_tag url_for(customer.image.variant(resize_to_limit: [ 250, 200 ]))
         else
           "No image attached"
         end
