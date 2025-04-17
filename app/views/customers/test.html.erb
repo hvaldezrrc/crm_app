@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Customer Partial Test</h1>
+
+  <div class="customers-grid">
+    <% Customer.all.each do |customer| %>
+      <%= render 'customer', customer: customer %>
+    <% end %>
+  </div>
+</div>
