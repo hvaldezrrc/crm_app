@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  get "customers/test", to: "customers#test"
+  # Set root path to customers index action
+  root 'customers#index'
+
+  # Custom routes for the customers controller
+  get 'customers/alphabetized', to: 'customers#alphabetized'
+  get 'customers/missing_email', to: 'customers#missing_email'
+  get 'customers/test', to: 'customers#test'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -15,4 +21,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :customers, only: [:index, :show]
 end
