@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Customers (Alphabetized)</h1>
+
+  <div class="navigation-links">
+    <%= link_to "View all Customers", root_path, class: "button" %>
+    <%= link_to "View Customers Missing Email", customers_missing_email_path, class: "button" %>
+  </div>
+
+  <div class="customers-grid">
+    <% @customers.each do |customer| %>
+      <%= render 'customer', customer: customer %>
+    <% end %>
+  </div>
+</div>
